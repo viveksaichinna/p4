@@ -23,16 +23,21 @@ class Example extends React.Component {
     // We read the example model data into the state variable 'name'
     this.state = {
       name: window.models.exampleModel().name,
+      motto: window.models.exampleModel().motto,
       counter: 0,
       inputValue: '',
       buttonWasClicked: '',
+
     };
+    
 
     // React events are called directly from DOM event handlers
     // so we cannot directly call the methods of this class. We
     // generate new functions that handle the event by just calling
     // the method that handles the event.
     this.handleChangeBound = event => this.handleChange(event);
+    this.handleChangeForm = this.handleChangeForm.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
     // Note: A commmon idiom in React code is to use JavaScript bind() to
     // smash the method to accomplish this passthrough to the method:
     //      this.handleChange = this.handleChange.bind(this);
@@ -62,6 +67,15 @@ class Example extends React.Component {
     // We need to tell the DOM to stop calling us otherwise React
     // will complain when we call setState on an unmounted component.
     clearInterval(this.timerID);
+  }
+  handleChangeForm(event) {
+    this.setState({value: event.target.value});
+  }
+  handleSubmit(event) {
+    // eslint-disable-next-line no-alert
+    //alert('A name was submitted: ' + this.state.value);
+    this.setState({motto:this.state.value});
+    event.preventDefault();
   }
 
   // Method called when the input box is typed into.
@@ -98,12 +112,51 @@ class Example extends React.Component {
   }
 
   render() {
+    
     return (
-      <div className="container Example">
+      <div className="container Example" >
         <h1>Project 4 React.js Example</h1>
 
         <div className="motto-update">
           {/* Your problem #1 motto displaying and updating widget goes here */}
+          <p style={{ color: '#A23456', fontSize: '34px', fontWeight: 'bold', margin: '10px 0' }}>Team-{this.state.name}</p>
+<p style={{ color: 'green', fontSize: '18px', fontStyle: 'italic', textDecoration: 'underline' }}> {this.state.motto}</p>
+
+
+<hr style={{ border: '2px solid #A49665' }} />
+
+          <form onSubmit={this.handleSubmit} style={{ backgroundColor: 'lightgray', padding: '10px', borderRadius: '5px' }}>
+  <label>
+    Change Motto:
+    &nbsp;&nbsp;&nbsp;
+    <input
+      type="text"
+      placeholder={this.state.motto}
+      value={this.state.value}
+      onChange={this.handleChangeForm}
+      style={{ 
+        border: '1px solid #ccc', 
+        borderRadius: '3px',
+        padding: '5px',
+        marginRight: '10px' // Adjust the spacing as needed
+      }}
+    />
+  </label>
+  <input
+    type="submit"
+    value="Change"
+    style={{ 
+      backgroundColor: '#A49665',
+      color: 'white',
+      padding: '5px 10px',
+      borderRadius: '3px',
+      cursor: 'pointer',
+      border: '2px solid #005035', // Add a gold border
+    }}
+    
+  />
+          </form>
+
         </div>
 
         <p>
