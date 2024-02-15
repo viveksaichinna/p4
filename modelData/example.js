@@ -1,4 +1,4 @@
-"use strict";
+
 
 /*
  * Load the model data for Project 4, Problem 1. We load into DOM the
@@ -16,6 +16,7 @@ if (models === undefined) {
 
 models.exampleModel = function () {
   return {
-    name: "Unknown Name",
+    name:"SSDI Group-10",
+    motto:"Arise awake and stop till the goal is reached",
   };
 };
