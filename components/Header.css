@@ -1,0 +1,31 @@
+/* Header */
+.header {
+  background-image: linear-gradient(to bottom, #016644, #002a1c);
+  color: #a5924f;
+  text-align: center;
+  padding: 20px 0 20px 50px; /* Add padding to the right for text content */
+  border-bottom: 5px solid #A49665;
+  position: relative;
+  transition: background-color 2s ease-in-out; /* Add a transition effect for smoother color changes */
+  animation: changeBackgroundColor 10s linear infinite; /* Apply the animation */
+}
+
+/* Header Content */
+.header-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Header Title with Stronger Text Shadow */
+.header-title {
+  font-size: 36px;
+  margin: 0;
+  text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Header Subtitle with Stronger Text Shadow */
+.header-subtitle {
+  font-size: 18px;
+  margin: 0;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+}
