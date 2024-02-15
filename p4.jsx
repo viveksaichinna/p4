@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 import States from './components/states/States';
 // eslint-disable-next-line import/no-unresolved
-import Header from './components/header/header';
+import Header from './components/header/Header';
 import Example from './components/example/Example';
 
 class App extends React.Component {
